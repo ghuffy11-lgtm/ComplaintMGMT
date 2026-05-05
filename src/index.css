@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@theme {
+  /* color mapping */
+  --color-bg: var(--bg);
+  --color-bg-accent: var(--bg-accent);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-hover: var(--surface-hover);
+  
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  
+  --color-text-main: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-on-primary: var(--text-on-primary);
+  
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-bg: var(--primary-bg);
+  --color-primary-border: var(--primary-border);
+  
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-danger-border: var(--danger-border);
+  
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  --color-warn-border: var(--warn-border);
+  
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-success-border: var(--success-border);
+  
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-2: var(--sidebar-2);
+  --color-sidebar-text: var(--sidebar-text);
+  --color-sidebar-text-muted: var(--sidebar-text-muted);
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  /* typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* shape */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* elevation */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* transition */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Animations */
+  --animate-fade-in: fade-in 200ms ease-out;
+  --animate-slide-in-bottom: slide-in-bottom 300ms ease-out;
+  --animate-slide-in-right: slide-in-right 300ms ease-out;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-in-bottom {
+    from { transform: translate(-50%, 1rem); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+  }
+  @keyframes slide-in-right {
+    from { transform: translateX(1rem); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+}
+
+:root {
+  /* Editorial Aesthetic Values */
+  --bg: #f8fafc;
+  --bg-accent: #f1f5f9;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --surface-hover: #f1f5f9;
+  
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --text-on-primary: #ffffff;
+  
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+  --primary-bg: #eff6ff;
+  --primary-border: #bfdbfe;
+  
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+  
+  --warn: #f59e0b;
+  --warn-bg: #fffbeb;
+  --warn-border: #fef3c7;
+  
+  --success: #10b981;
+  --success-bg: #ecfdf5;
+  --success-border: #d1fae5;
+  
+  --sidebar: #0f172a;
+  --sidebar-2: #1e293b;
+  --sidebar-text: #f8fafc;
+  --sidebar-text-muted: #94a3b8;
+  --sidebar-accent: #3b82f6;
+
+  --focus-ring: 0 0 0 2px #fff, 0 0 0 4px #2563eb;
+  
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-9: 2.25rem;
+  --space-10: 2.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text-main font-sans antialiased;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-border rounded-[10px] p-6 shadow-sm;
+  }
+  
+  .field {
+    @apply flex flex-col gap-1 mb-4;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-surface-2 text-text-muted;
+  }
+  
+  .badge-primary { @apply bg-primary-bg text-primary border border-primary-border; }
+  .badge-warn { @apply bg-warn-bg text-warn border border-warn-border; }
+  .badge-danger { @apply bg-danger-bg text-danger border border-danger-border; }
+  .badge-success { @apply bg-success-bg text-success border border-success-border; }
+  
+  .row { @apply flex items-center gap-4; }
+  .row-end { @apply flex items-center justify-end gap-3; }
+  .col { @apply flex flex-col gap-4; }
+  
+  .muted { @apply text-text-muted; }
+  .subtle { @apply text-text-subtle; }
+  .danger { @apply text-danger; }
+  .right { @apply text-right; }
+  .mono { @apply font-mono text-xs; }
+  .spacer { @apply flex-1; }
+  
+  .toolbar {
+    @apply flex flex-wrap items-center gap-3 py-3;
+  }
+  
+  .backdrop {
+    @apply fixed inset-0 bg-slate-900/55 backdrop-blur-[2px] z-50 animate-fade-in;
+  }
+  
+  .modal {
+    @apply fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-surface rounded-lg p-5 shadow-lg z-51 w-full max-w-md animate-slide-in-bottom;
+  }
+  
+  .modal-wide { @apply max-w-3xl; }
+  
+  .modal-header {
+    @apply flex items-center justify-between mb-4 border-b border-border pb-3;
+  }
+  
+  .toasts {
+    @apply fixed bottom-6 right-6 flex flex-col gap-3 z-100;
+  }
+  
+  .toast {
+    @apply bg-surface border-l-4 border-border rounded-md p-4 shadow-md w-72 animate-slide-in-right;
+  }
+  
+  .toast-info { @apply border-l-primary; }
+  .toast-success { @apply border-l-success; }
+  .toast-error { @apply border-l-danger; }
+  
+  .dropzone {
+    @apply border-2 border-dashed border-border rounded-lg p-8 flex flex-col items-center justify-center gap-2 transition-colors cursor-pointer;
+  }
+  
+  .dropzone.over {
+    @apply border-primary bg-primary-bg;
+  }
+  
+  .err { @apply text-xs text-danger mt-1; }
+  .hint { @apply text-xs text-text-muted mt-1; }
+  
+  .skeleton {
+    @apply bg-surface-2 animate-pulse rounded;
+  }
+  
+  .kbd {
+    @apply px-2 py-1 text-xs font-mono bg-surface-2 border border-border-strong rounded shadow-sm;
+  }
+}

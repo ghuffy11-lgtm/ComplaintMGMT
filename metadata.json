@@ -1,0 +1,6 @@
+{
+  "name": "Complaint Tracking System (CTS)",
+  "description": "A multi-department patient complaint management system for Hadi Clinic, featuring auditable workflows, dynamic field rendering, and comprehensive analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
